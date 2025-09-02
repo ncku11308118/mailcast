@@ -1,0 +1,59 @@
+---
+# yaml-language-server: $schema=./mailcast.schema.json
+mailing_list:
+  type: text/csv
+  file: ./mailing_list.csv
+
+message:
+  headers:
+    from: &author
+      - *originator
+    sender: &sender
+    reply_to: &contact
+      name: 教育網站資安弱點掃描防護服務計畫
+      address: evs_service@mail.moe.gov.tw
+    return_path: &originator *author
+    to: $.entry.email_address # original_recipient
+    cc: # carbon_copy_recipient
+    bcc: # blind_carbon_copy_recipient
+    subject: 114 年教育體系資安專業訓練課程《網站應⽤程式安全》課前通知
+    list_id:
+      label: b1adc3c3-5318-4383-82ee-71ed008772c7
+      namespace: evs.hs.edu.tw
+    message_id:
+  template:
+    type: text/html
+    file: ./template.htm
+    inline_attachments:
+      - type: image/jpeg
+        name: course.jpg
+        file: ./attachments/course.jpg
+        content_id:
+          label: course
+          namespace: *namespace
+      - type: image/png
+        name: procedure.png
+        file: ./attachments/procedure.png
+        content_id:
+          label: procedure
+          namespace: *namespace
+  attachments:
+    - type: application/pdf
+      name: 114年教育體系資安專業訓練課程_網站應用程式安全.pdf
+      file: ./attachments/114年教育體系資安專業訓練課程_網站應用程式安全.pdf
+    - type: application/pdf
+      name: 114年教育體系資安專業訓練課程_網站應⽤程式安全_課程資訊.pdf
+      file: ./attachments/114年教育體系資安專業訓練課程_網站應⽤程式安全_課程資訊.pdf
+    - type: text/calendar
+      name: 114年教育體系資安專業訓練課程_網站應⽤程式安全.ics
+      summary: 114 年教育體系資安專業訓練課程《網站應⽤程式安全》
+      start: 2025-08-29T09:00:00+08:00
+      end: 2025-08-29T15:30:00+08:00
+      organizer: *originator
+
+concurrency:
+  interval: 60
+
+log:
+  file: ./archive/logs/b1adc3c3-5318-4383-82ee-71ed008772c7.log
+  format: "Sent email successfully"

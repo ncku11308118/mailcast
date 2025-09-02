@@ -1,0 +1,196 @@
+{
+    "D2.autoUpdate": false,
+    "D2.checkForInstallAtStart": false,
+
+    "diffEditor.codeLens": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    "editor.comments.ignoreEmptyLines": true,
+    "editor.detectIndentation": false,
+    "editor.fontFamily": "Fantasque Sans Mono, Consolas, Courier New, monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 16,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "editor.inlayHints.maximumLength": 32,
+    "editor.insertSpaces": false,
+    "editor.lineHeight": 1.5,
+    "editor.lineNumbers": "on",
+    "editor.linkedEditing": true,
+    "editor.multiCursorMergeOverlapping": true,
+    "editor.quickSuggestions": {
+        "comments": "on",
+        "other": "on",
+        "strings": "on"
+    },
+    "editor.rulers": [ 80, 120 ],
+    "editor.wordWrap": "on",
+
+    "files.associations": {
+        "*.dbclient-js": "javascript",
+        "*.md": "markdown",
+        ".env*": "dotenv"
+    },
+    "files.autoSave": "onFocusChange",
+    "files.autoSaveWhenNoErrors": true,
+    "files.autoSaveWorkspaceFilesOnly": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+
+    "git.autofetch": true,
+
+    "html.format.wrapAttributes": "force-expand-multiline",
+
+    "json.format.keepLines": true,
+
+    "livePreview.portNumber": 52300,
+
+    "notebook.editorOptionsCustomizations": {
+        "editor.insertSpaces": true
+    },
+
+    "javascript.format.semicolons": "insert",
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "javascript.inlayHints.parameterNames.enabled": "literals",
+    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+    "javascript.inlayHints.parameterTypes.enabled": true,
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "javascript.inlayHints.variableTypes.enabled": true,
+    "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+    "javascript.referencesCodeLens.enabled": true,
+    "javascript.referencesCodeLens.showOnAllFunctions": true,
+    "js/ts.implicitProjectConfig.checkJs": true,
+
+    "python.analysis.inlayHints.callArgumentNames": "partial",
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.pytestParameters": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "python.terminal.activateEnvironment": false,
+
+    "remote.SSH.useExecServer": false,
+
+    "svelte.enable-ts-plugin": true,
+    "svelte.plugin.svelte.format.config.singleQuote": true,
+
+    "tailwindCSS.includeLanguages": {
+        "svelte": "html"
+    },
+
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+
+    "todo-tree.filtering.excludeGlobs": [ "**/node_modules/*/**", "**/.venv/*/**" ],
+    "todo-tree.general.showActivityBarBadge": true,
+
+    "typescript.format.semicolons": "insert",
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "typescript.inlayHints.enumMemberValues.enabled": true,
+    "typescript.inlayHints.parameterNames.enabled": "all",
+    "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+    "typescript.inlayHints.parameterTypes.enabled": true,
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "typescript.inlayHints.variableTypes.enabled": true,
+    "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.referencesCodeLens.showOnAllFunctions": true,
+
+    "workbench.colorTheme": "GitHub Light Default",
+    "workbench.editor.autoLockGroups": {
+        "gitlens.rebase": true,
+        "hexEditor.hexedit": true,
+        "mainThreadWebview-browserPreview": true,
+        "mainThreadWebview-markdown.preview": true,
+        "mainThreadWebview-simpleBrowser.view": true,
+        "pdf.preview": true,
+        "repl": true,
+        "sqlite-viewer.view": true,
+        "terminalEditor": true,
+        "workbench.input.interactive": true
+    },
+    "workbench.editorAssociations": {
+        "{hexdiff}:/**/*.*": "hexEditor.hexedit",
+        "*.png": "luna.editor"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.productIconTheme": "material-product-icons",
+
+    "[html]": {
+        // "editor.defaultFormatter": "vscode.html-language-features"
+    },
+
+    "[javascript][typescript][javascriptreact][typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+
+    "[json][jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "yaml.schemas": {
+        "file:///c%3A/Users/abc/.vscode/extensions/atlassian.atlascode-3.4.20/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "thunder-client.indentSize": 4,
+    "thunder-client.restoreTabs": true,
+    "thunder-client.sidebar.defaultTab": "Collections",
+    "thunder-client.sidebar.layout": "compact",
+    "thunder-client.sidebar.treeIndentation": 10,
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "explorer.autoRevealExclude": {
+        "**/.venv": true
+    },
+    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.diagnosticMode": "workspace",
+    "editor.accessibilitySupport": "off",
+    "gitlens.graph.layout": "editor",
+    "docker.extension.enableComposeLanguageServer": false,
+    "[sql]": {
+        // "editor.defaultFormatter": "cweijan.vscode-database-client2"
+    },
+    "geminicodeassist.inlineSuggestions.enableAuto": false,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "comment.line",
+                    "constant.language",
+                    "keyword.control",
+                    "keyword.operator.logical",
+                    "storage.type",
+                    "storage.modifier",
+                    "variable.language.special",
+                    "variable.parameter.function.language.special",
+                    "comment.block.html",
+                    "entity.name.function.target.makefile",
+                    "entity.name.tag.yaml",
+                    "keyword.other.special-method.dockerfile",
+                    "meta.object-literal.key.js",
+                    "support.function.builtin.python",
+                    "support.type.property-name.json.comments",
+                    "support.type.property-name.table.toml",
+                    "support.type.property-name.toml",
+                    "support.variable.magic.python",
+                    "variable.language.super.js",
+                    "variable.language.this.js",
+                    "variable.parameter.function-call.python"
+                ],
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "keyword.other.dotenv",
+                "settings": {
+                    "foreground": "#FF000000"
+                }
+            }
+        ]
+    },
+    "dotenv.enableAutocloaking": true,
+    "evenBetterToml.formatter.arrayTrailingComma": true
+}
