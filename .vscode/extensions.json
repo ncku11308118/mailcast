@@ -1,0 +1,13 @@
+{
+	"recommendations": [
+		"charliermarsh.ruff",
+		"christian-kohler.path-intellisense",
+		"gruntfuggly.todo-tree",
+		"ms-python.debugpy",
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"njpwerner.autodocstring",
+		"redhat.vscode-yaml",
+		"tamasfe.even-better-toml"
+	]
+}
