@@ -1,3 +1,4 @@
+from concurrent.futures import ThreadPoolExecutor as ThreadPoolExecutor
 from csv import DictReader
 from datetime import datetime
 from logging import (
@@ -24,10 +25,10 @@ from pydantic import (
     EmailStr,
 )
 
-from emailer.helpers.email_builder import Mailer
-from emailer.helpers.mailing_list import MailingList
-from emailer.schemas.environment import Environment
-from emailer.schemas.specification import Specification as Configuration
+from mailcast.helpers.email_builder import Mailer
+from mailcast.helpers.mailing_list import MailingList
+from mailcast.schemas.environment import Environment
+from mailcast.schemas.specification import Specification as Configuration
 
 logger = getLogger()
 

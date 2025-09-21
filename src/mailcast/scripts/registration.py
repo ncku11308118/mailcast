@@ -9,7 +9,7 @@ from typer import (
 )
 from yaml import safe_load
 
-from emailer.schemas.specification import Specification
+from mailcast.schemas.specification import Specification
 
 typer = Typer()
 

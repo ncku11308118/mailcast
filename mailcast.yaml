@@ -1,25 +1,27 @@
+---
 # yaml-language-server: $schema=./src/mailcast/mailcast.schema.json
-email:
-  originator: &return_path
-    name: 教育網站資安弱點掃描防護服務計畫
-    address: &namespace evs_service@mail.moe.gov.tw
-  author: &from
-    - <<: *return_path
-  sender: &sender
-    <<: *return_path
-  contact: &reply_to
-    - <<: *return_path
+message:
   mailing_list:
     list_id:
       label: b1adc3c3-5318-4383-82ee-71ed008772c7
       namespace: evs.hs.edu.tw
+    type: text/csv
     file: ./mailing_list.csv
-    context:
-      original_recipient: $.email_address
-      carbon_copy_recipient:
-      blind_carbon_copy_recipient:
+    context: # https://datatracker.ietf.org/doc/html/rfc9535
+      originator: &originator # Return-Path
+        name: 教育網站資安弱點掃描防護服務計畫
+        address: &namespace evs_service@mail.moe.gov.tw
+        loggable: true
+      sender: *originator # Sender
+      contact: # Reply-To
+        - *originator
+      author: # From
+        - *originator
+      original_recipient: $.entry.email_address # To
+      carbon_copy_recipient: # Cc
+      blind_carbon_copy_recipient: # Bcc
+      subject: 114 年教育體系資安專業訓練課程《網站應⽤程式安全》課前通知
       message_id:
-  subject: 114 年教育體系資安專業訓練課程《網站應⽤程式安全》課前通知
   template:
     type: text/html
     file: ./template.htm
@@ -48,13 +50,11 @@ email:
       summary: 114 年教育體系資安專業訓練課程《網站應⽤程式安全》
       start: 2025-08-29T09:00:00+08:00
       end: 2025-08-29T15:30:00+08:00
-      organizer: *return_path
+      organizer: *originator
 
-logging:
-  file: ./archive/logs/b1adc3c3-5318-4383-82ee-71ed008772c7.log
-  format: "Sent email successfully"
-  context: # https://datatracker.ietf.org/doc/html/rfc9535
-    id: $.message_id
-    recipient: $.email_address
+archive:
+  log:
+    file: ./archive/logs/b1adc3c3-5318-4383-82ee-71ed008772c7.log
+    format: "Sent email successfully"
 
 multithread:

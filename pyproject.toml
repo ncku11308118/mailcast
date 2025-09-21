@@ -28,7 +28,7 @@ dependencies = [
 #
 
 [project.scripts]
-emailer = "emailer.scripts.__init__:main"
+mailcast = "mailcast.scripts.__init__:main"
 
 [dependency-groups]
 dev = [

@@ -20,7 +20,7 @@ from icalendar import (
 )
 from pydantic import FilePath
 
-from emailer.schemas.specification import (
+from mailcast.schemas.specification import (
     AttachmentContent,
     AttachmentFile,
     Calendar as CalendarComponent,

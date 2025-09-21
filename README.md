@@ -13,9 +13,22 @@ Mailcast is designed to simplify your mail-sending workflow. By using a clean an
 - **Robust Data Validation**\
   Includes a JSON Schema for instant syntax checking and auto-completion when paired with a YAML Language Server, ensuring your specification is always correct.
 
+## 🌳 Message Tree
+
+```
+message/rfc822
+└-- multipart/mixed
+    ├-- multipart/alternative
+    │   ├-- multipart/related
+    │   │   ├-- text/html
+    │   │   └-- */* (inline attachment)
+    │   └- text/plain
+    └-- */* (attachment)
+```
+
 ## 🚀 Quick Start
 
-### 📦 Execution
+### Basic Usage
 
 Just one command will run Mailcast directly. Be sure you have uv installed.
 
@@ -23,7 +36,7 @@ Just one command will run Mailcast directly. Be sure you have uv installed.
 uvx mailcast register mailcast.yaml
 ```
 
-### 🛠️ Advanced Usage
+### Advanced Usage
 
 For more advanced customization or integration into your existing Python projects, you can install Mailcast as a library from PyPI using any package manager.
 

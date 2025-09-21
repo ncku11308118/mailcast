@@ -16,5 +16,68 @@
 
 	"python.analysis.autoImportCompletions": true,
 	"python.analysis.diagnosticMode": "workspace",
-	"python.terminal.activateEnvironment": false
+	"python.analysis.showOnlyDirectDependenciesInAutoImport": true,
+	// "python.languageServer": "Pylance",
+	"python.terminal.activateEnvironment": false,
+
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+			{
+				"scope": [
+					"source.js constant",
+					"source.ts constant",
+					"source.js support.constant",
+					"source.ts support.constant",
+					"support.function.basic_functions.php",
+					"support.variable.property.target.js",
+					"support.variable.property.target.ts"
+				],
+				"settings": {
+					"fontStyle": "italic"
+				}
+			},
+			{
+				"name": "Global",
+				"scope": [
+					"comment.line",
+					"constant.language",
+					"keyword.control",
+					"keyword.operator.logical",
+					"storage.type",
+					"storage.modifier",
+					"variable.language.special",
+					"variable.parameter.function.language.special"
+				],
+				"settings": {
+					"fontStyle": "italic"
+				}
+			},
+			{
+				"name": "Language-specific",
+				"scope": [
+					"comment.block.html",
+					"entity.name.function.target.makefile",
+					"entity.name.tag.yaml",
+					"entity.other.attribute-name.html",
+					"keyword.other.special-method.dockerfile",
+					"meta.object-literal.key.js",
+					"support.function.builtin.python",
+					"support.type.property-name.json.comments",
+					"support.type.property-name.table.toml",
+					"support.type.property-name.toml",
+					"support.variable.magic.python",
+					"support.variable.property.importmeta.js",
+					"support.variable.property.importmeta.ts",
+					"variable.language.super.js",
+					"variable.language.super.ts",
+					"variable.language.this.js",
+					"variable.language.this.ts",
+					"variable.parameter.function-call.python"
+				],
+				"settings": {
+					"fontStyle": "italic"
+				}
+			}
+		]
+	}
 }

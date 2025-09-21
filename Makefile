@@ -1,14 +1,13 @@
-.PHONY: dump
+.PHONY: clean dump format lint install upgrade
 
 .env: .env.example
 	cp .env.example .env
 
-install:
-	uv sync
+clean:
+	find . -type d -name '__pycache__' -exec rm -r {} +
 
-upgrade:
-	uv lock --upgrade
-	uv sync
+dump:
+	@uv run python -m mailcast.schemas.specification
 
 format:
 	uv run ruff format --respect-gitignore --verbose .
@@ -16,8 +15,9 @@ format:
 lint:
 	uv run ruff check --fix --select I .
 
-clean:
-	find . -type d -name '__pycache__' -exec rm -r {} +
+install:
+	uv sync
 
-dump:
-	@uv run python -m mailcast.schemas.specification
+upgrade:
+	uv lock --upgrade
+	uv sync

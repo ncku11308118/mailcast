@@ -1,0 +1,21 @@
+{
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true
+    },
+
+    "evenBetterToml.formatter.arrayAutoExpand": true,
+    "evenBetterToml.formatter.reorderArrays": true,
+    "evenBetterToml.formatter.trailingNewline": true,
+    "evenBetterToml.formatter.arrayAutoCollapse": false,
+    "evenBetterToml.formatter.arrayTrailingComma": true,
+
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "python.terminal.activateEnvironment": false,
+    "python.analysis.showOnlyDirectDependenciesInAutoImport": true
+}
