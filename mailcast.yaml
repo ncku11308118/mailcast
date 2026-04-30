@@ -6,20 +6,23 @@ mailing_list:
 
 message:
   headers:
-    from: &author
-      - *originator
-    sender: &sender
-    reply_to: &contact
-      name: 教育網站資安弱點掃描防護服務計畫
-      address: evs_service@mail.moe.gov.tw
-    return_path: &originator *author
-    to: $.entry.email_address # original_recipient
-    cc: # carbon_copy_recipient
+    from: # author
+      - &originator
+        name: 教育網站資安弱點掃描防護服務計畫
+        address: evs_service@mail.moe.gov.tw
+      - &sender
+        name: 教育網站資安弱點掃描防護服務計畫
+        address: evs_service@ncku.edu.tw
+    sender: *sender
+    reply_to: *originator
+    return_path: *sender
+    to: $.entry['電子郵件地址'] # original_recipient
+    cc: $.entry['電子郵件地址（副本）'] # carbon_copy_recipient
     bcc: # blind_carbon_copy_recipient
-    subject: 114 年教育體系資安專業訓練課程《網站應⽤程式安全》課前通知
+    subject: 115 年教育體系資安專業訓練課程《網站應⽤程式安全》課前通知
     list_id:
-      label: b1adc3c3-5318-4383-82ee-71ed008772c7
-      namespace: evs.hs.edu.tw
+      label: a5b85bfe-125f-419e-97d7-5ea0c3de91d1
+      namespace: &namespace evs.hs.edu.tw
     message_id:
   template:
     type: text/html
@@ -39,21 +42,21 @@ message:
           namespace: *namespace
   attachments:
     - type: application/pdf
-      name: 114年教育體系資安專業訓練課程_網站應用程式安全.pdf
+      name: 115年教育體系資安專業訓練課程_網站應用程式安全.pdf
       file: ./attachments/114年教育體系資安專業訓練課程_網站應用程式安全.pdf
     - type: application/pdf
-      name: 114年教育體系資安專業訓練課程_網站應⽤程式安全_課程資訊.pdf
+      name: 115年教育體系資安專業訓練課程_網站應⽤程式安全_課程資訊.pdf
       file: ./attachments/114年教育體系資安專業訓練課程_網站應⽤程式安全_課程資訊.pdf
     - type: text/calendar
-      name: 114年教育體系資安專業訓練課程_網站應⽤程式安全.ics
-      summary: 114 年教育體系資安專業訓練課程《網站應⽤程式安全》
-      start: 2025-08-29T09:00:00+08:00
-      end: 2025-08-29T15:30:00+08:00
+      name: 115年教育體系資安專業訓練課程_網站應⽤程式安全.ics
+      summary: 115 年教育體系資安專業訓練課程《網站應⽤程式安全》
+      start: 2026-04-29T09:00:00+08:00
+      end: 2026-04-29T15:30:00+08:00
       organizer: *originator
 
 concurrency:
   interval: 60
 
 log:
-  file: ./archive/logs/b1adc3c3-5318-4383-82ee-71ed008772c7.log
+  file: ./archive/logs/343ad54a-f292-4682-9370-fe7df2bcfe48.log
   format: "Sent email successfully"

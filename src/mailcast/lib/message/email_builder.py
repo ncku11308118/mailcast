@@ -3,6 +3,7 @@ from email.encoders import encode_base64
 from email.mime.multipart import MIMEMultipart
 from email.mime.nonmultipart import MIMENonMultipart
 from email.mime.text import MIMEText
+from email.utils import make_msgid
 from mimetypes import (
     guess_extension,
     guess_file_type,
@@ -22,9 +23,9 @@ from pydantic import FilePath
 
 from ..specification import Specification
 from ..specification.message import (
+    AttachmentCalendar,
     AttachmentContent,
     AttachmentFile,
-    Calendar as CalendarComponent,
     InlineAttachmentContent,
     InlineAttachmentFile,
     TemplateContent,
@@ -78,7 +79,7 @@ class EmailBuilder:
                 _type, _subtype = "application", "octet-stream"
 
             part = MIMENonMultipart(_type, _subtype)
-            part["Content-ID"] = inline_attachment.content_id
+            part["Content-ID"] = inline_attachment.content_id or make_msgid()  # TODO
 
             part.set_payload(payload)
             encode_base64(part)
@@ -119,7 +120,7 @@ class EmailBuilder:
     @classmethod
     def seal_mixed_message(
         cls,
-        attachments: Sequence[AttachmentFile | AttachmentContent | Calendar | FilePath] | None = None,
+        attachments: Sequence[AttachmentFile | AttachmentContent | AttachmentCalendar | FilePath] | None = None,
     ) -> MIMEMultipart:
         message = MIMEMultipart("mixed")  # multipart/mixed
 
@@ -139,7 +140,7 @@ class EmailBuilder:
 
                     if file_type == (None, None):
                         file_type = guess_file_type(attachment.file)
-                elif isinstance(attachment, CalendarComponent):
+                elif isinstance(attachment, AttachmentCalendar):
                     organizer = vCalAddress("MAILTO:evs_service@mail.moe.gov.tw")
                     calendar = Calendar()
                     event = Event(
@@ -154,7 +155,7 @@ class EmailBuilder:
 
                     calendar.add_component(event)
 
-                    file_stem = "114年教育體系資安專業訓練課程_網站應⽤程式安全"  # TODO
+                    file_stem = "115年教育體系資安專業訓練課程_網站應⽤程式安全"  # TODO
                     payload = calendar.to_ical()
                 else:
                     file_stem = "noname"

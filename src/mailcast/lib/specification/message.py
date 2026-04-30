@@ -84,20 +84,21 @@ class MessageHeaders(BaseModel, extra="allow"):
     list_id: ListID | None = Field(default=None)
     message_id: JSONPath | None = Field(default=None)
 
+
 class Attachment[T: str | None](MIMEEntity[T], ABC):
     name: str
 
 
-class AttachmentFile(Attachment):
+class AttachmentFile(Attachment[str | None]):
     file: FilePath
 
 
-class AttachmentContent(Attachment):
+class AttachmentContent(Attachment[str | None]):
     content: Base64UrlStr | str
 
 
-class InlineAttachment(Attachment):
-    content_id: JSONPath
+class InlineAttachment(Attachment[str | None]):
+    content_id: str | None
 
 
 class InlineAttachmentFile(AttachmentFile, InlineAttachment): ...
@@ -118,7 +119,7 @@ class TemplateContent(Template):
     content: Base64UrlStr | str
 
 
-class Calendar(Attachment[Literal["text/calendar"]]):
+class AttachmentCalendar(Attachment[Literal["text/calendar"]]):
     summary: str
     description: str | None = Field(default=None)
     start: datetime
@@ -129,4 +130,6 @@ class Calendar(Attachment[Literal["text/calendar"]]):
 class Message(BaseModel):
     headers: MessageHeaders
     template: TemplateFile | TemplateContent | FilePath
-    attachments: Sequence[AttachmentFile | AttachmentContent | Calendar | FilePath] | None = Field(default=None)
+    attachments: Sequence[AttachmentFile | AttachmentContent | AttachmentCalendar | FilePath] | None = Field(
+        default=None
+    )

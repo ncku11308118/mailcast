@@ -1,15 +1,13 @@
-from codecs import getreader
-from collections.abc import Mapping, Sequence
-from enum import Enum
+from collections.abc import Generator, Mapping, Sequence
 from csv import DictReader
-from http import (
-    HTTPMethod)
+from enum import Enum
+from http import HTTPMethod
+from io import TextIOWrapper
 from typing import Any
 from urllib.request import (
     Request,
     build_opener,
 )
-from yaml import safe_load_all
 
 from pydantic import (
     computed_field,
@@ -33,31 +31,31 @@ class MailingList(MIMEEntity[MailingListType]):
 
     @computed_field
     @property
-    def stream(self):
+    def stream(self) -> Generator[str]:
         if isinstance(self.file, AnyHttpUrl):
             opener = build_opener()
             request = Request(url=self.file.encoded_string(), method=HTTPMethod.GET)
 
             with opener.open(request) as response:
-                yield getreader("utf-8")(response)
+                yield from TextIOWrapper(response, encoding="utf-8", newline="")
         else:
             with self.file.open() as file:
-                yield file
+                yield from file
 
     @computed_field
     @property
-    def output(self):
+    def output(self) -> Generator[dict[str | Any, str | Any]]:
         match self.type:
             case MailingListType.CSV:
-                for row in DictReader(self.stream):
-                    yield row
+                yield from DictReader(self.stream)
 
-            case MailingListType.JSON:
+            case _:
+                pass
 
+            # case MailingListType.JSON:
+            #     ...
 
-            case MailingListType.YAML:
-                data = [
-                    item
-                    for document in safe_load_all(text)
-                    for item in (document if isinstance(document, Sequence) else [document])
-                ]
+            # case MailingListType.YAML:
+            #     for document in safe_load_all(text):
+            #         for item in document if isinstance(document, Sequence) else [document]:
+            #             yield item
